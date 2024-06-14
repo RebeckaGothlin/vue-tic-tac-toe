@@ -9,5 +9,14 @@ import TictactoeGame from './components/TictactoeGame.vue';
 </template>
 
 <style scoped>
+div {
+    width: auto;
+}
 
+@media (width <= 740px) {
+    div {
+        max-width: 25rem;
+        scale: 1;
+    }
+}
 </style>
