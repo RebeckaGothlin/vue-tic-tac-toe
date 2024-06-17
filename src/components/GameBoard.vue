@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, watch } from "vue";
 import SingleSquare from "./SingleSquare.vue";
 import { IGameState } from "../models/IGameState";
 
@@ -9,7 +9,11 @@ const props = defineProps<{
 
 const emit = defineEmits(["play"]);
 
-let currentUser = props.gameState.users.nameX;
+let currentUser = props.gameState.isXturn ? props.gameState.users.nameX : props.gameState.users.nameO;
+
+watch(() => props.gameState.isXturn, (isXturn) => {
+  currentUser = isXturn ? props.gameState.users.nameX : props.gameState.users.nameO;
+});
 
 const play = (index: number) => {
   if (props.gameState.gameOver) {
@@ -79,7 +83,7 @@ function checkIfGameOver(index: number) {
       :key="index"
       :state="square"
       :clickable="!gameState.gameOver && square === ''"
-      @click="() => play(index)"
+      @click="play(index)"
     />
   </div>
 </template>
