@@ -2,9 +2,13 @@
 import { IGameState } from '../models/IGameState';
 import { defineEmits, defineProps } from 'vue';
 
-const emit = defineEmits(['gameRestarted', 'newGameStarted']);
 const props = defineProps<{
   gameState: IGameState;
+}>();
+
+const emit = defineEmits<{
+  (e: 'gameRestarted'): void;
+  (e: 'newGameStarted'): void;
 }>();
 
 const restartGame = () => {
@@ -33,6 +37,7 @@ const newGame = () => {
       </div>
     </div>
 </template>
+
 <style scoped>
 .commandButtons {
   margin-top: 20px;
