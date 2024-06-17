@@ -2,13 +2,16 @@
 import { defineProps, defineEmits, ref } from 'vue';
 import { IGameState } from '../models/IGameState';
 
-const emit = defineEmits(['usernameSubmitted']);
+let name = ref("");
+
 const props = defineProps<{
   xoro: string;
   gameState: IGameState;
 }>();
 
-let name = ref("");
+const emit = defineEmits<{
+  (e: 'usernameSubmitted', payload: { xoro: string; name: string }): void;
+}>();
 
 const submitUserName = () => {
   if (props.xoro === 'X') {
@@ -16,13 +19,14 @@ const submitUserName = () => {
   } else {
     props.gameState.users.nameO = name.value;
   }
-  emit('usernameSubmitted', { xoro: props.xoro, name });
+  emit('usernameSubmitted', { xoro: props.xoro, name: name.value });
 };
 </script>
 
 <template>
   <div class="welcome">
     <h1>Tic Tac Toe</h1>
+    <p class="instruction">Få tre av dina symboler (X eller O) i rad horisontellt, vertikalt eller diagonalt. Den första spelaren som lyckas med detta vinner. Om alla rutor fylls utan att någon får tre i rad slutar spelet oavgjort.</p>
     <p>Fyll i namnen på spelare X och O för att börja spelet.</p>
     <label>Namn på spelare {{ xoro }}</label>
     <input v-model="name" class="askPlayer"/>
@@ -51,6 +55,11 @@ input {
 label {
     font-size: 1.5rem;
     margin: 1rem;
+}
+
+.instruction {
+  font-weight: 500;
+  margin-bottom: 50px;
 }
 
 p {
