@@ -6,8 +6,6 @@ import AskUsername from './AskUsername.vue';
 import { IGameState } from '../models/IGameState';
 import ShowScores from './ShowScores.vue';
 
-const emit = defineEmits(['play']);
-
 const gameState = reactive<IGameState>({
   gameboard: ["", "", "", "", "", "", "", "", ""],
   showScores: false,
@@ -31,6 +29,10 @@ if (gameStateFromLocalStorage) {
 watch(gameState, (newGameState) => {
   localStorage.setItem('gameState', JSON.stringify(newGameState));
 });
+
+const emit = defineEmits<{
+  (e: 'play', index: number): void;
+}>();
 
 const playGame = (index: number) => {
   emit('play', index);
@@ -58,7 +60,7 @@ const playGame = (index: number) => {
 </template>
   
 <style scoped>
-.ticTacToeGame{
+.ticTacToeGame {
   background-color: rgb(238, 159, 177);
   border: 5px solid rgb(114, 5, 27);
   padding: 2rem;
