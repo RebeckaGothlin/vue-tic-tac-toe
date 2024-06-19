@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { watch, reactive, defineEmits } from 'vue';
-import GameBoard from './GameBoard.vue';
-import CommandButtons from './CommandButtons.vue';
-import AskUsername from './AskUsername.vue';
-import { IGameState } from '../models/IGameState';
-import ShowScores from './ShowScores.vue';
+import { watch, reactive, defineEmits } from "vue";
+import GameBoard from "./GameBoard.vue";
+import CommandButtons from "./CommandButtons.vue";
+import AskUsername from "./AskUsername.vue";
+import { IGameState } from "../models/IGameState";
+import ShowScores from "./ShowScores.vue";
 
 const gameState = reactive<IGameState>({
   gameboard: ["", "", "", "", "", "", "", "", ""],
@@ -21,30 +21,40 @@ const gameState = reactive<IGameState>({
   gameOver: false,
 });
 
-const gameStateFromLocalStorage = localStorage.getItem('gameState');
+const gameStateFromLocalStorage = localStorage.getItem("gameState");
 if (gameStateFromLocalStorage) {
   Object.assign(gameState, JSON.parse(gameStateFromLocalStorage));
 }
 
 watch(gameState, (newGameState) => {
-  localStorage.setItem('gameState', JSON.stringify(newGameState));
+  localStorage.setItem("gameState", JSON.stringify(newGameState));
 });
 
 const emit = defineEmits<{
-  (e: 'play', index: number): void;
+  (e: "play", index: number): void;
 }>();
 
 const playGame = (index: number) => {
-  emit('play', index);
+  emit("play", index);
 };
 </script>
 
 <template>
   <div class="ticTacToeGame">
-    <div class="gameBoardShow" v-if="gameState.users.nameX.length > 0 && gameState.users.nameO.length > 0">
+    <div
+      class="gameBoardShow"
+      v-if="
+        gameState.users.nameX.length > 0 && gameState.users.nameO.length > 0
+      "
+    >
       <GameBoard :gameState="gameState" @play="playGame" />
     </div>
-    <div class="aside" v-if="gameState.users.nameX.length > 0 && gameState.users.nameO.length > 0">
+    <div
+      class="aside"
+      v-if="
+        gameState.users.nameX.length > 0 && gameState.users.nameO.length > 0
+      "
+    >
       <ShowScores :gameState="gameState" />
     </div>
     <div>
@@ -58,7 +68,7 @@ const playGame = (index: number) => {
     </div>
   </div>
 </template>
-  
+
 <style scoped>
 .ticTacToeGame {
   background-color: rgb(238, 159, 177);
@@ -84,8 +94,8 @@ const playGame = (index: number) => {
   right: 0;
   top: 0;
   border-radius: 10px;
-  margin-right:2rem;
-  margin-top:2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
   padding: 2rem;
-}  
+}
 </style>

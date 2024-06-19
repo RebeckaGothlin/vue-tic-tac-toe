@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits } from "vue";
 
 const props = defineProps<{
   state: string;
 }>();
 
 const emit = defineEmits<{
-  (e: 'squareClicked'): void;
+  (e: "squareClicked"): void;
 }>();
 
 const playGame = () => {
-  if (props.state === '') {
-    emit('squareClicked');
+  if (props.state === "") {
+    emit("squareClicked");
   }
 };
 </script>
 
 <template>
-    <div class="gameSquare" @click="playGame">
-      <p class="gameValue">{{ state }}</p>
-    </div>
+  <div class="gameSquare" @click="playGame">
+    <p class="gameValue">{{ state }}</p>
+  </div>
 </template>
 
 <style scoped>

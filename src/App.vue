@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import TictactoeGame from './components/TictactoeGame.vue';
+import TictactoeGame from "./components/TictactoeGame.vue";
 </script>
 
 <template>
-<div>
+  <div>
     <TictactoeGame />
-</div>
+  </div>
 </template>
 
 <style scoped>
 div {
-    width: auto;
+  width: auto;
 }
 
 @media (width <= 740px) {
-    div {
-        max-width: 25rem;
-        scale: 1;
-    }
+  div {
+    max-width: 25rem;
+    scale: 1;
+  }
 }
 </style>
