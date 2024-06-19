@@ -101,6 +101,7 @@ h2 {
   color: rgb(114, 5, 27);
   font-size: 2.6rem;
 }
+
 .gameBoard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
