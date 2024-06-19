@@ -51,7 +51,7 @@ input {
   border-radius: 8px;
   padding: 10px;
   font-size: 1rem;
-  color: black;
+  color: rgb(114, 5, 27);
   font-weight: bolder;
   background-color: rgb(255, 200, 213);
 }
@@ -62,8 +62,11 @@ label {
 }
 
 .instruction {
+  margin: 0 auto;
   font-weight: 500;
   margin-bottom: 50px;
+  max-width: 400px;
+  text-align: center;
 }
 
 p {
