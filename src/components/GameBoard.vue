@@ -9,11 +9,18 @@ const props = defineProps<{
 
 const emit = defineEmits(["play"]);
 
-let currentUser = props.gameState.isXturn ? props.gameState.users.nameX : props.gameState.users.nameO;
+let currentUser = props.gameState.isXturn
+  ? props.gameState.users.nameX
+  : props.gameState.users.nameO;
 
-watch(() => props.gameState.isXturn, (isXturn) => {
-  currentUser = isXturn ? props.gameState.users.nameX : props.gameState.users.nameO;
-});
+watch(
+  () => props.gameState.isXturn,
+  (isXturn) => {
+    currentUser = isXturn
+      ? props.gameState.users.nameX
+      : props.gameState.users.nameO;
+  }
+);
 
 const play = (index: number) => {
   if (props.gameState.gameOver) {
@@ -45,7 +52,7 @@ function checkIfGameOver(index: number) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6] 
+    [2, 4, 6],
   ];
 
   const currentPlayer = props.gameState.gameboard[index];
@@ -95,16 +102,15 @@ h2 {
   font-size: 2.6rem;
 }
 .gameBoard {
-  width: 23rem;
-  height: 23rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  width: 23rem;
+  height: 23rem;
   background-color: rgb(255, 200, 213);
   color: rgb(114, 5, 27);
-  
 }
 
 @media (width <= 740px) {
@@ -113,8 +119,8 @@ h2 {
     height: 20rem;
   }
 
-  h1 {
-    font-size: 2rem;
+  h2 {
+    font-size: 2.3rem;
   }
 }
 </style>
