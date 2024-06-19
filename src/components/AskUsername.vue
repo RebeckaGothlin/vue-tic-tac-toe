@@ -35,26 +35,30 @@ const submitUserName = () => {
 </template>
 
 <style scoped>
+h1 {
+  margin-top: 10px;
+}
+
 .usernameBtn {
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: rgb(114, 5, 27);
-    color: rgb(255, 200, 213);
-    margin: 1rem;
+  border-radius: 16px;
+  padding: 12px;
+  background-color: rgb(114, 5, 27);
+  color: rgb(255, 200, 213);
+  margin: 10px;
 }
 
 input {
-    border-radius: 1rem;
-    padding: 1rem;
-    font-size: 1rem;
-    color: black;
-    font-weight: bolder;
-    background-color: rgb(255, 200, 213);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  color: black;
+  font-weight: bolder;
+  background-color: rgb(255, 200, 213);
 }
 
 label {
-    font-size: 1.5rem;
-    margin: 1rem;
+  font-size: 1.5rem;
+  margin: 16px;
 }
 
 .instruction {
@@ -63,21 +67,21 @@ label {
 }
 
 p {
-    line-break: auto;
+  line-break: auto;
 }
 
 .welcome {
-    color: rgb(114, 5, 27);
+  color: rgb(114, 5, 27);
 }
 
 @media (width <= 740px) {
-    .welcome {
-        max-width: 30rem;
-    }
+  .welcome {
+      max-width: 480px;
+  }
 
-    h1 {
-        font-size: 3rem;
-        font-family: 'Times New Roman', Times, serif;
-    }
+  h1 {
+    font-size: 48px;
+    font-family: 'Times New Roman', Times, serif;
+  }
 }
 </style>
