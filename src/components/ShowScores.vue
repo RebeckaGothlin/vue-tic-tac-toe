@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { IGameState } from '../models/IGameState';
-import { defineProps } from 'vue';
+import { IGameState } from "../models/IGameState";
+import { defineProps } from "vue";
 
 const props = defineProps<{
   gameState: IGameState;
@@ -8,18 +8,34 @@ const props = defineProps<{
 </script>
 
 <template>
-    <aside class="scoreShow">
-      <h3>Resultat</h3>
-      <p>{{ props.gameState.users.nameO }}: {{ props.gameState.scores.scoresO }} poäng.</p>
-      <p> {{ props.gameState.users.nameX }}: {{ props.gameState.scores.scoresX }} poäng.</p>
-    </aside>
+  <aside class="showScore">
+    <h3>Resultat</h3>
+    <p>
+      {{ props.gameState.users.nameO }}:
+      {{ props.gameState.scores.scoresO }} poäng.
+    </p>
+    <p>
+      {{ props.gameState.users.nameX }}:
+      {{ props.gameState.scores.scoresX }} poäng.
+    </p>
+  </aside>
 </template>
 
 <style scoped>
 h3 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   text-transform: uppercase;
   margin-bottom: 10px;
-  font-size: 3rem;
+  margin-top: 10px;
+  font-size: 2.7rem;
+  text-decoration: underline 2px;
+}
+
+.showScore {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border: 2px solid rgb(114, 5, 27);
+  border-radius: 2.5%;
+  background-color: rgb(255, 200, 213);
 }
 </style>
