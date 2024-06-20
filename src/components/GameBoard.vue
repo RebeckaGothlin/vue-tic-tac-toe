@@ -83,7 +83,7 @@ function checkIfGameOver(index: number) {
 
 <template>
   <h2 v-if="!gameState.gameOver">Det är {{ currentUser }}s tur</h2>
-  <h2 v-else>GAME OVER!</h2>
+  <h2 v-else class="game-over">GAME OVER!</h2>
   <div class="gameBoard">
     <SingleSquare
       v-for="(square, index) in gameState.gameboard"
@@ -112,6 +112,19 @@ h2 {
   height: 23rem;
   background-color: rgb(255, 200, 213);
   color: rgb(114, 5, 27);
+}
+
+.game-over {
+  animation: gameOverAnimation 2s forwards;
+}
+
+@keyframes gameOverAnimation {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 @media (width <= 740px) {
