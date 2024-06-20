@@ -26,6 +26,7 @@ const playGame = () => {
 .gameSquare {
   border: 2px rgb(114, 5, 27) solid;
   overflow: hidden;
+  transition: 0.5s ease;
 }
 
 .gameSquare:hover {
