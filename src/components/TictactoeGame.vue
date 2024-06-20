@@ -21,9 +21,9 @@ const gameState = reactive<IGameState>({
   gameOver: false,
 });
 
-const gameStateFromLocalStorage = localStorage.getItem("gameState");
-if (gameStateFromLocalStorage) {
-  Object.assign(gameState, JSON.parse(gameStateFromLocalStorage));
+const gameStateLocalStorage = localStorage.getItem("gameState");
+if (gameStateLocalStorage) {
+  Object.assign(gameState, JSON.parse(gameStateLocalStorage));
 }
 
 watch(gameState, (newGameState) => {
@@ -73,7 +73,7 @@ const playGame = (index: number) => {
 .ticTacToeGame {
   background-color: rgb(238, 159, 177);
   border: 5px solid rgb(114, 5, 27);
-  padding: 2rem;
+  padding: 32px;
   border-radius: 10px;
   height: fit-content;
 }
@@ -94,8 +94,8 @@ const playGame = (index: number) => {
   right: 0;
   top: 0;
   border-radius: 10px;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  padding: 2rem;
+  margin-right: 32px;
+  margin-top: 32px;
+  padding: 32px;
 }
 </style>
