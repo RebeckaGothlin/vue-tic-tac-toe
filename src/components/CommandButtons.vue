@@ -56,5 +56,10 @@ button {
   margin: 10px;
   background-color: rgb(114, 5, 27);
   color: rgb(255, 200, 213);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(70, 2, 16);
 }
 </style>
