@@ -5,7 +5,7 @@
 
 #### Link to the game
 
-https://medieinstitutet.github.io/vue-tictactoe-RebeckaGothlin/
+https://rebeckagothlin.github.io/vue-tic-tac-toe/
 
 ---
 
